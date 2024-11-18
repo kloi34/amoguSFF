@@ -4238,12 +4238,14 @@ function rgbaToUint(r, g, b, a) return a*16^6 + b*16^4 + g*16^2 + r end
 --    endOffset    : millisecond time of the final SV [Int]
 --    svMultiplier : the final SV's multiplier [Int/Float]
 function addFinalSV(svsToAdd, endOffset, svMultiplier)
+    return
+    --[[
     local sv = map.GetScrollSpeedFactorAt(endOffset) 
     local svExistsAtEndOffset = sv and (sv.StartTime == endOffset)
     if svExistsAtEndOffset then return end
     
-    
     addSVToList(svsToAdd, endOffset, svMultiplier, true)
+    --]]
 end
 -- Adds an SV with the start offset into the list if there isn't an SV there already
 -- Parameters
